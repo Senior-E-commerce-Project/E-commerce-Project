@@ -9,7 +9,9 @@ const Favorite = require ('../models/Favorite.js');
 const Images = require ('../models/Images.js')
 
 
-const connection = new Sequelize ('shop','root','857595A!',{
+
+
+const connection = new Sequelize ('shop','root','kh@lilbou@rrouj69',{
   host : 'localhost',
   dialect : 'mysql'
 })
