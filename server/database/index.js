@@ -6,10 +6,13 @@ const Products = require ('../models/Products.js')
 const Ratings = require ('../models/Rating.js')
 const Carts = require ('../models/Carts.js')
 const Favorite = require ('../models/Favorite.js');
+const Images = require ('../models/Images.js')
+
 
 
 
 const connection = new Sequelize ('shop','root','root',{
+
   host : 'localhost',
   dialect : 'mysql'
 })
@@ -21,7 +24,7 @@ const product = connection.define("Products", Products)
 const Rate = connection.define('Ratings',Ratings)
 const Cart = connection.define('Carts',Carts)
 const favorite = connection.define('Favorite',Favorite)
-
+const image = connection.define('Images',Images)
 
 
 user.hasMany(Rate);
@@ -31,7 +34,7 @@ user.hasMany(product);
 product.hasMany(Rate)
 Cart.hasMany(product)
 favorite.hasMany(product)
-
+product.hasMany(image)
 
 
 
