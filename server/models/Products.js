@@ -27,39 +27,6 @@ ProductPrice : {
     allowNull: false
  },
 
- ProductImage1 : {
-    type : DataTypes.STRING,
- },
-
- ProductImage2 : {
-   type : DataTypes.STRING,
-},
-
-ProductImage3 : {
-   type : DataTypes.STRING,
-},
-
-
-ProductImage4 : {
-   type : DataTypes.STRING,
-},
-
-
-ProductImage5 : {
-   type : DataTypes.STRING,
-},
-
-
-ProductImage6 : {
-   type : DataTypes.STRING,
-},
-
-
-ProductImage7 : {
-   type : DataTypes.STRING,
-},
- 
-
 ProductAvailability : {
     type : DataTypes.BOOLEAN,
  },
