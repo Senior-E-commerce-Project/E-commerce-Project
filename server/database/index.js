@@ -9,7 +9,7 @@ const Favorite = require ('../models/Favorite.js');
 
 
 
-const connection = new Sequelize ('shop','root','Me.inSql@Rbk',{
+const connection = new Sequelize ('shop','root','kh@lilbou@rrouj69',{
   host : 'localhost',
   dialect : 'mysql'
 })
