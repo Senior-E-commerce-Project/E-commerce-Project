@@ -5,7 +5,9 @@ const User=db.models.Users
 
 
 
+
 /////get all users/////
+
 const getAll = function (req, res) {
 const user=  User.findAll({}).then((result)=>{
   res.send(result)
@@ -101,6 +103,7 @@ res.send(users);
 };
 
 
+
 /////get all sellers/////
 const getAllSellers = async function (req, res) {
   try {
@@ -113,7 +116,37 @@ const getAllSellers = async function (req, res) {
   } catch (error) {
     res.status(500).send(error);
   }
+
+const userAz=  User.findAll({}).then((result)=>{
+  res.send(result)
+})
+.catch((error)=>{
+  res.send(error)
+})
+  
 };
+const Adduser=function(req,res){
+let data={
+  UserName:req.body.UserName,
+  UserEmail:req.body.UserEmail,
+  UserPassword:req.body.UserPassword,
+  UserPhoto:req.body.UserPhoto,
+  UserLocation:req.body.UserLocation,
+  UserRole:req.body.UserRole,
+  createdAt:req.body.createdAt,
+  updatedAt:req.body.updatedAt
+
+}
+const user=  User.create(data).then((result)=>{
+  res.send(result)
+})
+.catch((error)=>{
+  res.send(error)
+})
+
+
+
+}
 
 /////get all buyers/////
 const getAllBuyers = async function (req, res) {
@@ -151,7 +184,7 @@ const getUserById = async function (req, res) {
 
 
 module.exports = {
-  getAll,getUserById,Adduser,getAllSellers,getUsersByRole,deleteUser,updateUser,getAllBuyers
+  getAll,getUserById,Adduser,getAllSellers,getUsersByRole,deleteUser,updateUser,getAllBuyers,Adduse
 }
 // const { error } = require("jquery");
 // // const { DataTypes, Sequelize } = require('sequelize');
