@@ -11,6 +11,8 @@ const Images = require ('../models/Images.js')
 
 
 
+
+
 const connection = new Sequelize ('shop','root','Me.inSql@Rbk',{
 
   host : 'localhost',
@@ -48,4 +50,8 @@ connection.authenticate().then(() => {
    console.error('Unable to connect to the database: ', error);
 });
 
+
 module.exports = connection
+
+//Don't forget to export what is needed.
+
