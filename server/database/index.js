@@ -24,14 +24,20 @@ const favorite = connection.define('Favorite',Favorite)
 const image = connection.define('Images',Images)
 
 
-user.hasMany(Rate);
-user.hasMany(favorite);
+user.belongsToMany(Rate);
+favorite.belongsTo(user,{
+   foreignKey:"iduser"
+});
+favorite.belongsTo(product,{
+   foreignKey:"idproduct"
+})
+
+
 user.hasOne(Cart);
 user.hasMany(product);
 product.hasMany(Rate)
 Cart.hasMany(product)
-favorite.hasMany(product)
-product.hasMany(image)
+product.belongsToMany(image)
 
 
 
