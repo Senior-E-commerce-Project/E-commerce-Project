@@ -11,6 +11,7 @@ const Images = require ('../models/Images.js')
 
 
 
+
 const connection = new Sequelize ('shop','root','root',{
   host : 'localhost',
   dialect : 'mysql'
