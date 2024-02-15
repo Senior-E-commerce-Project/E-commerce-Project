@@ -27,14 +27,18 @@ const favorite = connection.define('Favorite',Favorite)
 const image = connection.define('Images',Images)
 
 
-user.hasMany(Rate);
-user.hasMany(favorite);
-user.hasOne(Cart);
-user.hasMany(product);
-product.hasMany(Rate)
-Cart.hasMany(product)
-favorite.hasMany(product)
-product.hasMany(image)
+
+favorite.belongsTo(user,{foreignKey:'userId'});
+favorite.belongsTo(product,{foreignKey:'productId'})
+image.belongsTo(product,{foreignKey:'productId'})
+Rate.belongsTo(user,{foreignKey:'userId'});
+Cart.belongsTo(user,{foreignKey:'userId'});
+Cart.belongsTo(product,{foreignKey:'productId'})
+product.belongsTo(user,{foreignKey:'userId'});
+Rate.belongsTo(product,{foreignKey:'productId'})
+
+
+
 
 
 
@@ -45,5 +49,3 @@ connection.authenticate().then(() => {
 });
 
 module.exports = connection
-
-//Don't forget to export what is needed.
