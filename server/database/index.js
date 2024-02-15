@@ -9,7 +9,7 @@ const Favorite = require ('../models/Favorite.js');
 
 
 
-const connection = new Sequelize ('shop','root','Me.inSql@Rbk',{
+const connection = new Sequelize ('shop','azizel','azerty123456',{
   host : 'localhost',
   dialect : 'mysql'
 })
@@ -42,5 +42,4 @@ connection.authenticate().then(() => {
 });
 
 module.exports = connection
-
 //Don't forget to export what is needed.
