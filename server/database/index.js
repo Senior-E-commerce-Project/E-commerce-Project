@@ -24,14 +24,6 @@ const favorite = connection.define('Favorite',Favorite)
 const image = connection.define('Images',Images)
 
 
-user.belongsToMany(Rate);
-favorite.belongsTo(user,{
-   foreignKey:"iduser"
-});
-favorite.belongsTo(product,{
-   foreignKey:"idproduct"
-})
-
 
 user.hasOne(Cart);
 user.hasMany(product);
