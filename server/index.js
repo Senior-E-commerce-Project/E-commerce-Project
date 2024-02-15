@@ -34,8 +34,9 @@ app.listen(PORT, () => {
 });
 
 
-database.sync({ force : true , alter: false}).then(() => {
-  console.log('Tables created/updated successfully!');
-}).catch((error) => {
-  console.error('Unable to create/alter tables: ', error);
-});
+// database.sync({ force : true , alter: false}).then(() => {
+//   console.log('Tables created/updated successfully!');
+// }).catch((error) => {
+//   console.error('Unable to create/alter tables: ', error);
+// });
+
