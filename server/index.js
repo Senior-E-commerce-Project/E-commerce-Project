@@ -1,6 +1,8 @@
 const express = require("express");
+
 // const ShopaholicRoutes = require('./routes/UsersRoute.js')
 const database = require('./database/index.js')
+
 
 
 const RouteUsers = require ('./routes/UsersRoute.js')
@@ -39,3 +41,4 @@ database.sync({ force : true , alter: false}).then(() => {
 }).catch((error) => {
   console.error('Unable to create/alter tables: ', error);
 });
+

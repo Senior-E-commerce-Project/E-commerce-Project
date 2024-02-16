@@ -1,5 +1,6 @@
 const { error } = require("jquery");
 const db = require("../database/index");
+
 const usermodel=require("../models/Users")
 const User=db.models.Users
 
@@ -283,6 +284,7 @@ module.exports = {
 //   getAllSellers,
 //   getAllBuyers
 // };
+
 
 
 
