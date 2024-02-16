@@ -1,6 +1,7 @@
 const {sequelize, Sequelize} = require('sequelize')
 const mysql = require ('mysql2'); 
 
+
 const Users = require ('../models/Users.js') 
 const Products = require ('../models/Products.js')
 const Ratings = require ('../models/Rating.js')
@@ -13,7 +14,10 @@ const Images = require ('../models/Images.js')
 
 
 
+
 const connection = new Sequelize ('shop','root','Me.inSql@Rbk',{
+
+
 
   host : 'localhost',
   dialect : 'mysql'
@@ -27,6 +31,7 @@ const Rate = connection.define('Ratings',Ratings)
 const Cart = connection.define('Carts',Carts)
 const favorite = connection.define('Favorite',Favorite)
 const image = connection.define('Images',Images)
+
 
 
 
