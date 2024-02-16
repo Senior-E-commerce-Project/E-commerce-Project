@@ -1,6 +1,6 @@
 const { error } = require("jquery");
 const db = require("../database/index");
-const User = db.Users
+const User = db.models.Users
 
 
 
