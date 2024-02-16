@@ -13,7 +13,7 @@ const Images = require ('../models/Images.js')
 
 
 
-const connection = new Sequelize ('shop','root','Me.inSql@Rbk',{
+const connection = new Sequelize ('shop','azizel','azerty123456',{
 
   host : 'localhost',
   dialect : 'mysql'

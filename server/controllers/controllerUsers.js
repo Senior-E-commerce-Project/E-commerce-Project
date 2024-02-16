@@ -125,7 +125,7 @@ const userAz=  User.findAll({}).then((result)=>{
 })
   
 };
-const Adduser=function(req,res){
+const adduser=function(req,res){
 let data={
   UserName:req.body.UserName,
   UserEmail:req.body.UserEmail,
@@ -143,9 +143,6 @@ const user=  User.create(data).then((result)=>{
 .catch((error)=>{
   res.send(error)
 })
-
-
-
 }
 
 /////get all buyers/////
@@ -184,7 +181,7 @@ const getUserById = async function (req, res) {
 
 
 module.exports = {
-  getAll,getUserById,Adduser,getAllSellers,getUsersByRole,deleteUser,updateUser,getAllBuyers,Adduse
+  getAll,getUserById,Adduser,getAllSellers,getUsersByRole,deleteUser,updateUser,getAllBuyers,Adduser
 }
 // const { error } = require("jquery");
 // // const { DataTypes, Sequelize } = require('sequelize');
