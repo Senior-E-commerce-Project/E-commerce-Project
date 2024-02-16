@@ -9,14 +9,10 @@ const Favorite = require ('../models/Favorite.js');
 const Images = require ('../models/Images.js')
 
 
-
-
 const connection = new Sequelize ('shop','root','Me.inSql@Rbk',{
-
   host : 'localhost',
   dialect : 'mysql'
 })
-
 
 
 const user = connection.define("Users", Users)
@@ -39,13 +35,14 @@ Rate.belongsTo(product,{foreignKey:'productId'})
 
 
 
-
-
-
 connection.authenticate().then(() => {
    console.log('Connection has been established successfully.');
 }).catch((error) => {
    console.error('Unable to connect to the database: ', error);
 });
 
+
 module.exports = connection
+module.exports = {user,product,Rate,Cart,favorite,image}
+//Don't forget to export what is needed.
+
