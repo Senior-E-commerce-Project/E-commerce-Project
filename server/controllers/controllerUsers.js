@@ -127,29 +127,28 @@ const db = require("../database/index");
 //   res.send(error)
 // })
   
-// };
-// const Adduser=function(req,res){
-// let data={
-//   UserName:req.body.UserName,
-//   UserEmail:req.body.UserEmail,
-//   UserPassword:req.body.UserPassword,
-//   UserPhoto:req.body.UserPhoto,
-//   UserLocation:req.body.UserLocation,
-//   UserRole:req.body.UserRole,
-//   createdAt:req.body.createdAt,
-//   updatedAt:req.body.updatedAt
 
-// }
-// const user=  User.create(data).then((result)=>{
-//   res.send(result)
-// })
-// .catch((error)=>{
-//   res.send(error)
-// })
+};
+const adduser=function(req,res){
+let data={
+  UserName:req.body.UserName,
+  UserEmail:req.body.UserEmail,
+  UserPassword:req.body.UserPassword,
+  UserPhoto:req.body.UserPhoto,
+  UserLocation:req.body.UserLocation,
+  UserRole:req.body.UserRole,
+  createdAt:req.body.createdAt,
+  updatedAt:req.body.updatedAt
 
+}
+const user=  User.create(data).then((result)=>{
+  res.send(result)
+})
+.catch((error)=>{
+  res.send(error)
+})
+}
 
-
-// }
 
 /////get all buyers/////
 // const getAllBuyers = async function (req, res) {
@@ -186,9 +185,10 @@ const db = require("../database/index");
 
 
 
-// module.exports = {
-//   getAll,getUserById,Adduser,getAllSellers,getUsersByRole,deleteUser,updateUser,getAllBuyers,Adduser
-// }
+module.exports = {
+  getAll,getUserById,Adduser,getAllSellers,getUsersByRole,deleteUser,updateUser,getAllBuyers,Adduser
+}
+
 // const { error } = require("jquery");
 // // const { DataTypes, Sequelize } = require('sequelize');
 // const connection = require("../database/index");
