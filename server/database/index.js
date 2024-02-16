@@ -54,6 +54,8 @@ connection.authenticate().then(() => {
 
 
 module.exports = connection
+
 module.exports = {user,product,Rate,Cart,favorite,image}
+
 //Don't forget to export what is needed.
 
