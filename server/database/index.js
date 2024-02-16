@@ -18,6 +18,7 @@ const Images = require ('../models/Images.js')
 const connection = new Sequelize ('shop','root','Me.inSql@Rbk',{
 
 
+
   host : 'localhost',
   dialect : 'mysql'
 })
@@ -32,14 +33,12 @@ const favorite = connection.define('Favorite',Favorite)
 const image = connection.define('Images',Images)
 
 
-user.hasMany(Rate);
-user.hasMany(favorite);
+
 user.hasOne(Cart);
 user.hasMany(product);
 product.hasMany(Rate)
 Cart.hasMany(product)
-favorite.hasMany(product)
-product.hasMany(image)
+product.belongsToMany(image)
 
 
 
