@@ -1,6 +1,7 @@
 const {sequelize, Sequelize} = require('sequelize')
 const mysql = require ('mysql2'); 
 
+
 const Users = require ('../models/Users.js') 
 const Products = require ('../models/Products.js')
 const Ratings = require ('../models/Rating.js')
@@ -9,7 +10,15 @@ const Favorite = require ('../models/Favorite.js');
 const Images = require ('../models/Images.js')
 
 
+
+
+
+
+
+
+
 const connection = new Sequelize ('shop','root','Me.inSql@Rbk',{
+
   host : 'localhost',
   dialect : 'mysql'
 })
@@ -24,6 +33,7 @@ const image = connection.define('Images',Images)
 
 
 
+
 favorite.belongsTo(user,{foreignKey:'userId'});
 favorite.belongsTo(product,{foreignKey:'productId'})
 image.belongsTo(product,{foreignKey:'productId'})
@@ -32,6 +42,7 @@ Cart.belongsTo(user,{foreignKey:'userId'});
 Cart.belongsTo(product,{foreignKey:'productId'})
 product.belongsTo(user,{foreignKey:'userId'});
 Rate.belongsTo(product,{foreignKey:'productId'})
+
 
 
 

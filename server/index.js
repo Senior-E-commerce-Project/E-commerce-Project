@@ -1,8 +1,11 @@
 const express = require("express");
+
 // const ShopaholicRoutes = require('./routes/UsersRoute.js')
 const database = require('./database/index.js')
 
+
 const authRoutes = require ('../server/routes/authRoute.js')
+
 const RouteUsers = require ('./routes/UsersRoute.js')
 const RouteProducts = require ('./routes/ProductsRoute.js')
 const RouteCarts = require ('./routes/CartsRoute.js')
@@ -37,3 +40,4 @@ app.listen(PORT, () => {
 // }).catch((error) => {
 //   console.error('Unable to create/alter tables: ', error);
 // });
+
