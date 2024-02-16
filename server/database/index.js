@@ -12,7 +12,12 @@ const Images = require ('../models/Images.js')
 
 
 
-const connection = new Sequelize ('shop','root','root',{
+
+
+
+const connection = new Sequelize ('shop','root','Me.inSql@Rbk',{
+
+
   host : 'localhost',
   dialect : 'mysql'
 })
@@ -45,5 +50,4 @@ connection.authenticate().then(() => {
 });
 
 module.exports = connection
-
 //Don't forget to export what is needed.
