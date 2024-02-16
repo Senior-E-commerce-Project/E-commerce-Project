@@ -8,6 +8,7 @@ const RouteProducts = require ('./routes/ProductsRoute.js')
 const RouteCarts = require ('./routes/CartsRoute.js')
 const RouteRating = require ('./routes/RatignRoute.js')
 const RouteFavorite = require ('./routes/FavoriteRoute.js')
+const RouteImages=require('./routes/imgRoute.js')
 
 const PORT = 3000;
 const app = express();
@@ -27,6 +28,7 @@ app.use('/Products',RouteProducts)
 app.use('/Favorite',RouteFavorite)
 app.use('/Rating',RouteRating)
 app.use('/Carts',RouteCarts)
+app.use('/images',RouteImages)
 
 
 app.listen(PORT, () => {
@@ -34,8 +36,8 @@ app.listen(PORT, () => {
 });
 
 
-database.sync({ force : true , alter: false}).then(() => {
-  console.log('Tables created/updated successfully!');
-}).catch((error) => {
-  console.error('Unable to create/alter tables: ', error);
-});
+// database.sync({ force : true , alter: false}).then(() => {
+//   console.log('Tables created/updated successfully!');
+// }).catch((error) => {
+//   console.error('Unable to create/alter tables: ', error);
+// });
