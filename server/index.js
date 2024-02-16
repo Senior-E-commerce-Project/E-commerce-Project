@@ -1,6 +1,8 @@
 const express = require("express");
-const ShopaholicRoutes = require('./routes/UsersRoute.js')
+
+// const ShopaholicRoutes = require('./routes/UsersRoute.js')
 const database = require('./database/index.js')
+
 
 
 const RouteUsers = require ('./routes/UsersRoute.js')
@@ -18,8 +20,8 @@ const cors = require("cors");
 
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded("../"));
 app.use(express.static(__dirname + "/../client/dist"));
+app.use(express.urlencoded({ extended: true }));
 
 
 app.use('/Users',RouteUsers)
@@ -39,3 +41,4 @@ database.sync({ force : true , alter: false}).then(() => {
 }).catch((error) => {
   console.error('Unable to create/alter tables: ', error);
 });
+
