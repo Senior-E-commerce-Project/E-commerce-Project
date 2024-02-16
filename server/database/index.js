@@ -1,7 +1,7 @@
 const {sequelize, Sequelize} = require('sequelize')
 const mysql = require ('mysql2'); 
 
-// const db={}
+
 const Users = require ('../models/Users.js') 
 const Products = require ('../models/Products.js')
 const Ratings = require ('../models/Rating.js')
@@ -44,6 +44,6 @@ connection.authenticate().then(() => {
    console.error('Unable to connect to the database: ', error);
 });
 
-module.exports = {connection}
+module.exports = connection
 
 //Don't forget to export what is needed.
