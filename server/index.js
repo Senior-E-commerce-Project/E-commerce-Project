@@ -1,7 +1,10 @@
 const express = require("express");
+
 // const ShopaholicRoutes = require('./routes/UsersRoute.js')
 const database = require('./database/index.js')
 
+
+const authRoutes = require ('../server/routes/authRoute.js')
 
 const RouteUsers = require ('./routes/UsersRoute.js')
 const RouteProducts = require ('./routes/ProductsRoute.js')
@@ -12,8 +15,6 @@ const RouteFavorite = require ('./routes/FavoriteRoute.js')
 const PORT = 3000;
 const app = express();
 const cors = require("cors");
-
-
 
 
 app.use(cors());
@@ -27,15 +28,16 @@ app.use('/Products',RouteProducts)
 app.use('/Favorite',RouteFavorite)
 app.use('/Rating',RouteRating)
 app.use('/Carts',RouteCarts)
-
+app.use('/admin',authRoutes)
 
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);
 });
 
 
-database.sync({ force : true , alter: false}).then(() => {
-  console.log('Tables created/updated successfully!');
-}).catch((error) => {
-  console.error('Unable to create/alter tables: ', error);
-});
+// database.sync({ force : true , alter: false}).then(() => {
+//   console.log('Tables created/updated successfully!');
+// }).catch((error) => {
+//   console.error('Unable to create/alter tables: ', error);
+// });
+

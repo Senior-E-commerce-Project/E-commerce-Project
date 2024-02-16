@@ -1,3 +1,4 @@
+
 const { error } = require("jquery");
 const db = require("../database/index");
 const usermodel=require("../models/Products")
@@ -39,3 +40,5 @@ const getProductById = async (req, res) => {
 };
 
 module.exports={getAllProducts,getProductById,createProduct}
+
+
