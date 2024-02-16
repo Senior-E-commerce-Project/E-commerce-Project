@@ -1,5 +1,5 @@
 const router = require("express").Router();
-// const controllerUsers = require ('../controllers/controllerUsers')
+const controllerUsers = require ('../controllers/controllerUsers')
 
 
  router.post("/post",controllerUsers.Adduser)
