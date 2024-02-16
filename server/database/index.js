@@ -15,14 +15,13 @@ const Images = require ('../models/Images.js')
 
 
 
+
+
 const connection = new Sequelize ('shop','root','Me.inSql@Rbk',{
-
-
 
   host : 'localhost',
   dialect : 'mysql'
 })
-
 
 
 const user = connection.define("Users", Users)
@@ -47,8 +46,6 @@ Rate.belongsTo(product,{foreignKey:'productId'})
 
 
 
-
-
 connection.authenticate().then(() => {
    console.log('Connection has been established successfully.');
 }).catch((error) => {
@@ -57,6 +54,8 @@ connection.authenticate().then(() => {
 
 
 module.exports = connection
+
+module.exports = {user,product,Rate,Cart,favorite,image}
 
 //Don't forget to export what is needed.
 
