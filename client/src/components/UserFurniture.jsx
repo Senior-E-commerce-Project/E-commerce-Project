@@ -3,14 +3,14 @@ import axios from "axios";
 import { Grid, Card, CardContent, Typography } from "@mui/material";
 import Navbar from "./UserNav.jsx";
 
-const UserClothes = () => {
-  const [clothes, setClothes] = useState([]);
+const UserFurniture = () => {
+  const [furniture, setFurniture] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/Products/getAll/Clothes")
+      .get("http://localhost:3000/Products/getAll/Furniture")
       .then((res) => {
-        setClothes(res.data);
+        setFurniture(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -21,7 +21,7 @@ const UserClothes = () => {
     <div>
       <Navbar />
       <Grid container spacing={2} style={{ paddingTop: "20px" }}>
-        {clothes.map((el, index) => (
+        {furniture.map((el, index) => (
           <Grid key={index} item xs={12} sm={6} md={4} lg={3}>
             <Card
               style={{ cursor: "pointer", transition: "transform 0.3s" }}
@@ -50,4 +50,4 @@ const UserClothes = () => {
   );
 };
 
-export default UserClothes;
+export default UserFurniture;
