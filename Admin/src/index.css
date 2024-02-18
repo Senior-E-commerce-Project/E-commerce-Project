@@ -1,3 +1,203 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+body {
+    background-image: url('../src/images/shopping-trolleys-packets-gift-tags.jpg');
+    background-size: 1900px,800px;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .top {
+    background-color: #000000;
+  }
+  
+  .topnav {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    align-items: center;
+  }
+  
+  .topnav div {
+    margin-right: 15px;
+  }
+  
+  .topnav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .topnav a:hover {
+    color: #FF0000; /* Red color on hover */
+  }
+  
+  .searchbar {
+    padding: 8px;
+    margin-right: 6px;
+  }
+  
+  .searchbutton {
+    background-color: #FF0000; /* Red color */
+    color: black; /* Black text color */
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    margin-right: 30%;
+  }
+  
+  .searchbutton:hover {
+    background-color: #990000; /* Darker red on hover */
+    color: white; /* White text color on hover */
+  }
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .top {
+    background-color: #333;
+  }
+  
+  .topnav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+  }
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .topnav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .topnav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 15px;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .topnav a:hover {
+    color: #FF0000; /* Red color on hover */
+  }
+  
+  .searchbar {
+    padding: 8px;
+    margin-right: 10px;
+  }
+  
+  .searchbutton {
+    background-color: #FF0000; /* Red color */
+    color: black; /* Black text color */
+    padding: 12px 20px; /* Larger padding for a bigger button */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+  
+  .searchbutton:hover {
+    background-color: #990000; /* Darker red on hover */
+    color: white; /* White text color on hover */
+  }
+  
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  
+  /* styles.css */
+
+/* Global styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar styles */
+nav {
+  background-color: #333;
+  padding: 10px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: #ddd;
+}
+
+/* Container styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Component-specific styles */
+.component-container {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Add more specific styles for your components as needed */
+/* styles.css */
+
+/* ... (existing styles) ... */
+
+/* Card styles */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+
+}
+
+.card:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+  
+  
+  
+  
+  
+  
+
