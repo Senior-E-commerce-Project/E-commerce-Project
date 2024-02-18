@@ -3,7 +3,7 @@ const db = require("../database/index");
 const imgmod=require("../models/Images")
 
 
-const Image=db.models.Images
+const Image=db.Images
 
 const getAll = function (req, res) {
 

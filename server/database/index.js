@@ -15,7 +15,7 @@ const Images = require ('../models/Images.js')
 
 
 
-const connection = new Sequelize ('shop','azizel','azerty123456',{
+const connection = new Sequelize ('shop','root','kh@lilbou@rrouj69',{
 
 
   host : 'localhost',
