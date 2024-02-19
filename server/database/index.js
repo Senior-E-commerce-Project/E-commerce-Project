@@ -1,7 +1,6 @@
 const {sequelize, Sequelize} = require('sequelize')
 const mysql = require ('mysql2'); 
 
-
 const Users = require ('../models/Users.js') 
 const Products = require ('../models/Products.js')
 const Ratings = require ('../models/Rating.js')
@@ -10,9 +9,13 @@ const Favorite = require ('../models/Favorite.js');
 const Images = require ('../models/Images.js')
 
 
+<<<<<<< HEAD
 
 
 const connection = new Sequelize ('shop','root','root',{
+=======
+const connection = new Sequelize ('shop','root','kh@lilbou@rrouj69',{
+>>>>>>> 3d31a77ba95b4c3fa217abc07b6330078661df22
   host : 'localhost',
   dialect : 'mysql'
 })
@@ -45,8 +48,13 @@ connection.authenticate().then(() => {
 });
 
 module.exports = connection
+<<<<<<< HEAD
 // module.exports={cart}
 
 
 
 //Don't forget to export what is needed.
+=======
+
+//Don't forget to export what is needed.
+>>>>>>> 3d31a77ba95b4c3fa217abc07b6330078661df22
