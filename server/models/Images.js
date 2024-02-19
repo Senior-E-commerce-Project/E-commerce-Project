@@ -14,26 +14,27 @@ const ImagesSchema = {
   
  Image1 : {
     type : DataTypes.STRING,
-  
+  allowNull:false
  },
 
  Image2 : {
     type : DataTypes.STRING,
-  
+  allowNull:false
  },
 
 Image3 : {
     type : DataTypes.STRING,
-    
+    allowNull:false
  },
 
 Image4 : {
     type : DataTypes.INTEGER,
+    allowNull:true
  },
 
  Image5 : {
     type : DataTypes.INTEGER,
-    
+    allowNull:true
  },
 
 }

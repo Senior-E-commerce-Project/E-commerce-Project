@@ -1,5 +1,6 @@
 const db = require("../database/index");
 
+
 // const usermodel=require("../models/Users")
 const User=db.models.Users
 
@@ -10,6 +11,25 @@ const User=db.models.Users
 
 ///get all users/////
 
+
+
+
+
+
+
+
+/////get all users/////
+
+const getAll = function (req, res) {
+const user=  User.findAll({}).then((result)=>{
+   res.send(result)
+ })
+.catch((error)=>{
+   res.send(error)
+})
+ };
+
+
 const getAll = function (req, res) {
 const user=  User.findAll({}).then((result)=>{
   res.send(result)
@@ -17,6 +37,28 @@ const user=  User.findAll({}).then((result)=>{
 .catch((error)=>{
   res.send(error)
 })
+};
+
+
+/////add users/////
+ const Adduser = async function (req, res) {
+  try {
+    let data = {
+      UserName: req.body.UserName,
+      UserEmail: req.body.UserEmail,
+      UserPassword: req.body.UserPassword,
+     UserPhoto: req.body.UserPhoto,
+      UserLocation: req.body.UserLocation,
+      UserRole: req.body.UserRole,
+      createdAt: req.body.createdAt,
+      updatedAt: req.body.updatedAt
+    };
+
+    const user = await User.create(data);
+    res.send(user);
+  } catch (error) {
+    res.status(500).send(error,console.log("cannot add user"));
+  }
 };
 
 
@@ -47,6 +89,24 @@ const deleteUser = async function (req, res) {
   try {
     const userId = req.params.userId;
     const user = await User.findByPk(userId);
+
+ const deleteUser = async function (req, res) {
+   try {
+     const userId = req.params.userId;
+    const user = await User.findByPk(userId);
+
+     if (!user) {
+      res.status(404).send('User not found');
+      return;
+    }
+
+    await user.destroy();
+    res.send('User deleted successfully');
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
 
     if (!user) {
       res.status(404).send('User not found');
@@ -89,7 +149,6 @@ const updateUser = async function (req, res) {
   }
 }
 
-/////get user by role/////
 const getUsersByRole = async function (req, res) {
   try {
     const userRole = req.params.userRole;
@@ -106,7 +165,6 @@ res.send(users);
 
 
 
-/////get all sellers/////
 const getAllSellers = async function (req, res) {
   try {
     const sellers = await User.findAll({
@@ -126,29 +184,8 @@ const userAz=  User.findAll({}).then((result)=>{
   res.send(error)
 })
   
+
 };
-// const Adduser=function(req,res){
-// let data={
-//   UserName:req.body.UserName,
-//   UserEmail:req.body.UserEmail,
-//   UserPassword:req.body.UserPassword,
-//   UserPhoto:req.body.UserPhoto,
-//   UserLocation:req.body.UserLocation,
-//   UserRole:req.body.UserRole,
-//   createdAt:req.body.createdAt,
-//   updatedAt:req.body.updatedAt
-
-// }
-// const user=  User.create(data).then((result)=>{
-//   res.send(result)
-// })
-// .catch((error)=>{
-//   res.send(error)
-// })
-
-
-
-// }
 
 /////get all buyers/////
 const getAllBuyers = async function (req, res) {
@@ -188,104 +225,6 @@ const getUserById = async function (req, res) {
 module.exports = {
   getAll,getUserById,Adduser,getAllSellers,getUsersByRole,deleteUser,updateUser,getAllBuyers,Adduser
 }
-
-// const { error } = require("jquery");
-// // const { DataTypes, Sequelize } = require('sequelize');
-// const connection = require("../database/index");
-// const {getAllUsers,getOne,remove,updat,add,getSellers,getBuyers} = require("../database/index");
-
-
-// // function to get all users
-// const getAllUser = (req, res) => {
-//   getAllUsers((err, results) => {
-//     if (err) {
-//         res.status(500).json({ error: 'Unable to get All Users' });
-//     } else {
-//         res.status(200).json(results);
-//     }
-// });
-// };
-
-// // //  function to get one user by ID
-// const getOneUser = (req, res) => {
-//   const idUser = req.params.idUser; 
-//   getOne(idUser, (err, results) => {
-//     if (err) {
-//       res.status(500).json({ error: 'Unable to get One User ' });
-//     } else {
-//       res.status(200).json(results);
-//     }
-//   });
-// };
-
-// // //  function to remove a user by UserName
-// const removeUser = (req, res) => {
-//   const UserName = req.params.UserName; // Assuming the username is in the request parameters
-//   remove(UserName, (err, results) => {
-//     if (err) {
-//       res.status(500).json({ error: 'Unable to remove User' });
-//     } else {
-//       res.status(200).json(results);
-//     }
-//   });
-// };
-
-// // //  function to update a user by ID
-// const updateUser = (req, res) => {
-//   const idUser = req.params.idUser;
-//   const updatedValue = req.body.value; 
-//   updat(idUser, updatedValue, (err, results) => {
-//     if (err) {
-//       res.status(500).json({ error: 'Unable to update user' });
-//     } else {
-//       res.status(200).json(results);
-//     }
-//   });
-// };
-
-// // //  function to add a new user
-// const addUser = (req, res) => {
-//   const newUser = req.body; 
-//   add(newUser, (err, results) => {
-//     if (err) {
-//       res.status(500).json({ error: 'Unable to add user' });
-//     } else {
-//       res.status(200).json(results);
-//     }
-//   });
-// };
-
-// // //  function to get all sellers
-// const getAllSellers = (req, res) => {
-//   getSellers((err, results) => {
-//     if (err) {
-//       res.status(500).json({ error: 'Unable to get all sellers' });
-//     } else {
-//       res.status(200).json(results);
-//     }
-//   });
-// };
-
-// // //  function to get all buyers
-// const getAllBuyers = (req, res) => {
-//   getBuyers((err, results) => {
-//     if (err) {
-//       res.status(500).json({ error: 'Unable to get All buyers' });
-//     } else {
-//       res.status(200).json(results);
-//     }
-//   });
-// };
-
-// module.exports = {
-//   getAllUser,
-//   getOneUser,
-//   removeUser,
-//   updateUser,
-//   addUser,
-//   getAllSellers,
-//   getAllBuyers
-// };
 
 
 

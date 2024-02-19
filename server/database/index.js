@@ -1,7 +1,6 @@
 const {sequelize, Sequelize} = require('sequelize')
 const mysql = require ('mysql2'); 
 
-
 const Users = require ('../models/Users.js') 
 const Products = require ('../models/Products.js')
 const Ratings = require ('../models/Rating.js')
@@ -10,18 +9,11 @@ const Favorite = require ('../models/Favorite.js');
 const Images = require ('../models/Images.js')
 
 
-
-
-
-
-
-
-
-const connection = new Sequelize ('shop','root','Me.inSql@Rbk',{
-
+const connection = new Sequelize ('shop','root','kh@lilbou@rrouj69',{
   host : 'localhost',
   dialect : 'mysql'
 })
+
 
 
 const user = connection.define("Users", Users)
@@ -32,17 +24,14 @@ const favorite = connection.define('Favorite',Favorite)
 const image = connection.define('Images',Images)
 
 
-
-
-favorite.belongsTo(user,{foreignKey:'userId'});
-favorite.belongsTo(product,{foreignKey:'productId'})
-image.belongsTo(product,{foreignKey:'productId'})
-Rate.belongsTo(user,{foreignKey:'userId'});
-Cart.belongsTo(user,{foreignKey:'userId'});
-Cart.belongsTo(product,{foreignKey:'productId'})
-product.belongsTo(user,{foreignKey:'userId'});
-Rate.belongsTo(product,{foreignKey:'productId'})
-
+user.hasMany(Rate);
+user.hasMany(favorite);
+user.hasOne(Cart);
+user.hasMany(product);
+product.hasMany(Rate)
+Cart.hasMany(product)
+favorite.hasMany(product)
+product.hasMany(image)
 
 
 
@@ -52,10 +41,6 @@ connection.authenticate().then(() => {
    console.error('Unable to connect to the database: ', error);
 });
 
-
 module.exports = connection
 
-module.exports = {user,product,Rate,Cart,favorite,image}
-
 //Don't forget to export what is needed.
-
