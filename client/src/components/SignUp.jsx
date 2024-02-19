@@ -118,6 +118,9 @@ const SignUp = () => {
             nameU,
             email,
             password,
+            photo,
+            location,
+            role
           })}} 
         > <Link to='/SignIn' >Register </Link> </button>
       </form>

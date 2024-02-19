@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import axios  from 'axios';
-// // import { useAuth } from './AuthToken';
+import { useAuth } from './AuthToken';
 
 
 const SignIn = () => {
@@ -9,7 +9,7 @@ const SignIn = () => {
 const [email,setEmail]=useState('')
 const [password,setPassword]=useState('')
 const [error,setError] = useState('')
-// // const { setAuthToken } = useAuth();
+const { setAuthToken } = useAuth();
 
 
 
@@ -27,10 +27,10 @@ const connectAdmin = (email,password,error)=>{
             } else if (res.data === 'Incorrect email or password') {
              setError('Incorrect email or password');
             } else if (token && email !== 'test1@gmail.com') {
-            //   setAuthToken(token);
+              setAuthToken(token);
              setError('Valid User'); 
             } else if (token && email === 'test1@gmail.com') {
-            //   setAuthToken(token);
+              setAuthToken(token);
              setError('Enjoy'); 
               
             }
