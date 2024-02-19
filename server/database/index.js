@@ -45,5 +45,8 @@ connection.authenticate().then(() => {
 });
 
 module.exports = connection
+// module.exports={cart}
+
+
 
 //Don't forget to export what is needed.

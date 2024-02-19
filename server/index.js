@@ -18,8 +18,8 @@ const cors = require("cors");
 
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded("../"));
 app.use(express.static(__dirname + "/../client/dist"));
+app.use(express.urlencoded({ extended: true }));
 
 
 app.use('/Users',RouteUsers)

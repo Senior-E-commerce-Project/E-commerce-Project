@@ -3,7 +3,6 @@ const {DataTypes , sequelize } = require ('sequelize')
 
 
 
-
 const ProductSchema = {
   idProduct : {
        type : DataTypes.INTEGER,
@@ -40,7 +39,23 @@ ProductAvailability : {
     defaultValue: 0
  },
 
+ ProductImage1 : {
+   type : DataTypes.STRING
+ },
+
+ ProductImage2 : {
+   type : DataTypes.STRING
+ },
+
+ ProductImage3 : {
+   type : DataTypes.STRING
+ },
+
+ ProductImage4 : {
+   type : DataTypes.STRING
+ }
 }
+
 
 
 // const Products = database.define('Products', ProductSchema)
