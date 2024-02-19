@@ -1,4 +1,7 @@
 import './App.css';
+import './components/SignUp'
+import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserAllProducts from './components/UserAllProducts.jsx';
 import UserNav from './components/UserNav.jsx'
@@ -14,8 +17,11 @@ import { useContext, useState } from 'react';
 function App() {
   const userContext = useContext(Context)
   const [query, setQuery] = useState("")
+
   return (
+    
     <div className="App">
+
       <BrowserRouter>
       <Context.Provider value= {{query, setQuery}}>
 
@@ -33,7 +39,9 @@ function App() {
         </Routes>
         </Context.Provider>
       </BrowserRouter>
+
     </div>
+   
   );
 }
 

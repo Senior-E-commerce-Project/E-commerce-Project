@@ -1,6 +1,17 @@
-const { error } = require("jquery");
 const db = require("../database/index");
-const User = db.models.Users
+
+
+// const usermodel=require("../models/Users")
+const User=db.models.Users
+
+
+
+
+
+
+///get all users/////
+
+
 
 
 
@@ -17,6 +28,16 @@ const user=  User.findAll({}).then((result)=>{
    res.send(error)
 })
  };
+
+
+const getAll = function (req, res) {
+const user=  User.findAll({}).then((result)=>{
+  res.send(result)
+})
+.catch((error)=>{
+  res.send(error)
+})
+};
 
 
 /////add users/////
@@ -40,7 +61,34 @@ const user=  User.findAll({}).then((result)=>{
   }
 };
 
-// /////delete user/////
+
+///add users/////
+const Adduser = async function (req, res) {
+  try {
+    let data = {
+      UserName: req.body.UserName,
+      UserEmail: req.body.UserEmail,
+      UserPassword: req.body.UserPassword,
+      UserPhoto: req.body.UserPhoto,
+      UserLocation: req.body.UserLocation,
+      UserRole: req.body.UserRole,
+      createdAt: req.body.createdAt,
+      updatedAt: req.body.updatedAt
+    };
+
+    const user = await User.create(data);
+    res.send(user);
+  } catch (error) {
+    res.status(500).send(error,console.log("cannot add user"));
+  }
+};
+
+/////delete user/////
+
+const deleteUser = async function (req, res) {
+  try {
+    const userId = req.params.userId;
+    const user = await User.findByPk(userId);
 
  const deleteUser = async function (req, res) {
    try {
@@ -48,6 +96,19 @@ const user=  User.findAll({}).then((result)=>{
     const user = await User.findByPk(userId);
 
      if (!user) {
+      res.status(404).send('User not found');
+      return;
+    }
+
+    await user.destroy();
+    res.send('User deleted successfully');
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
+
+    if (!user) {
       res.status(404).send('User not found');
       return;
     }
@@ -88,7 +149,6 @@ const updateUser = async function (req, res) {
   }
 }
 
-///get user by role/////
 const getUsersByRole = async function (req, res) {
   try {
     const userRole = req.params.userRole;
@@ -105,7 +165,6 @@ res.send(users);
 
 
 
-///get all sellers/////
 const getAllSellers = async function (req, res) {
   try {
     const sellers = await User.findAll({
@@ -127,26 +186,6 @@ const userAz=  User.findAll({}).then((result)=>{
   
 
 };
-const adduser=function(req,res){
-let data={
-  UserName:req.body.UserName,
-  UserEmail:req.body.UserEmail,
-  UserPassword:req.body.UserPassword,
-  UserPhoto:req.body.UserPhoto,
-  UserLocation:req.body.UserLocation,
-  UserRole:req.body.UserRole,
-  createdAt:req.body.createdAt,
-  updatedAt:req.body.updatedAt
-
-}
-const user=  User.create(data).then((result)=>{
-  res.send(result)
-})
-.catch((error)=>{
-  res.send(error)
-})
-}
-
 
 /////get all buyers/////
 const getAllBuyers = async function (req, res) {
@@ -163,7 +202,7 @@ const getAllBuyers = async function (req, res) {
   }
 };
 
-///get user by id/////
+/////get user by id/////
 const getUserById = async function (req, res) {
   try {
     const userId = req.params.userId;
@@ -186,4 +225,7 @@ const getUserById = async function (req, res) {
 module.exports = {
   getAll,getUserById,Adduser,getAllSellers,getUsersByRole,deleteUser,updateUser,getAllBuyers,Adduser
 }
+
+
+
 
